@@ -1,0 +1,20 @@
+<main class="page" [attr.data-theme]="theme()">
+  <div class="container">
+    <header class="header">
+      <p class="header__label">Weather App</p>
+      <h1 class="header__title">Погода в будь-якому місті</h1>
+    </header>
+
+    <app-search-form [isLoading]="isLoading()" (search)="searchWeather($event)" />
+
+    @if (errorMessage(); as message) {
+    <p class="message message--error" role="alert">{{ message }}</p>
+    }
+
+    @if (weather(); as weather) {
+    <app-weather-card [weather]="weather" />
+    } @else if (!errorMessage()) {
+    <p class="message">Введіть назву міста, щоб дізнатися поточну погоду.</p>
+    }
+  </div>
+</main>

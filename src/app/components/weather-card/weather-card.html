@@ -1,0 +1,25 @@
+<article class="card">
+  <header class="card__header">
+    <div>
+      <h2 class="card__city">{{ weather().city }}</h2>
+      @if (weather().country) {
+        <p class="card__country">{{ weather().country }}</p>
+      }
+    </div>
+    <span class="card__icon" aria-hidden="true">{{ icon() }}</span>
+  </header>
+
+  <p class="card__temperature">{{ weather().temperature }}°C</p>
+  <p class="card__description">{{ weather().description }}</p>
+
+  <dl class="card__details">
+    <div class="card__detail">
+      <dt>Вологість</dt>
+      <dd>{{ weather().humidity }}%</dd>
+    </div>
+    <div class="card__detail">
+      <dt>Вітер</dt>
+      <dd>{{ weather().windSpeed }} м/с</dd>
+    </div>
+  </dl>
+</article>

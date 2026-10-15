@@ -1,0 +1,14 @@
+<form class="search" [formGroup]="searchForm" (ngSubmit)="submit()">
+  <label class="visually-hidden" for="city">Назва міста</label>
+  <input
+    id="city"
+    class="search__input"
+    type="text"
+    placeholder="Наприклад, Київ"
+    autocomplete="off"
+    formControlName="city"
+  />
+  <button class="search__button" type="submit" [disabled]="isLoading()">
+    {{ isLoading() ? 'Завантаження...' : 'Показати погоду' }}
+  </button>
+</form>
